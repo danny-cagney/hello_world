@@ -3,12 +3,7 @@ import re
 import sys
 
 # get the version from the module without importing it
-version_re = re.compile("""__version__[\s]*=[\s]*['|"](.*)['|"]""")
-
-with open('helloworld.py', 'r') as f:
-    content = f.read()
-    match = version_re.search(content)
-    version = match.group(1)
+from helloworld import __version__ as version
 
 readme = os.path.join(os.path.dirname(__file__), 'README.md')
 long_description = open(readme).read()
